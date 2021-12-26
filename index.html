@@ -1,0 +1,3212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="C:\Users\Anshika Thakur\Desktop\Web Tricks\prod\prod.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=MedievalSharp&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto',sans-serif;
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent; 
+}
+body{
+    width: 100vw;
+    overflow-x: hidden;
+}
+.hambox{
+    position: fixed;
+    top: 50px;
+    right: 20px;
+    padding: 20px;
+    z-index: 20;
+    font-size: 1.2rem;
+    font-weight: 900;
+    cursor: pointer;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.hambox .over{   
+    background-color: #fc91050c;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    clip-path: circle(0% at 50% 50%);
+    transition: all 1s ease-in-out;
+}
+.hambox:hover .over{
+    clip-path: circle(100% at 50% 50%);
+    background-color: #fc9105;
+}
+.hambox:hover i{
+    color: #000;
+}
+.hambox i{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: #fc9105;
+    transition: all 1s ease-in-out;
+}
+.sidenav{
+    height:90vh;
+    width: 70vw;
+    position:fixed;
+    top: 0;
+    right: 0;
+    background-color:#000;
+    z-index: 25;
+    overflow: hidden;
+    transform-origin: top;
+    transform: rotate(-60deg) translateX(150%);
+    transition: all 1.5s ease-in-out;
+}
+.sidenav .navbox{
+    height: 90%;
+    width: 90%;
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    transform: translateX(150%);
+    transition: all 1.5s ease-in-out;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.sidenav .navbox .nv{
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+}
+.sidenav .navbox .nv a{
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+    transition: all .5s ease;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+}
+.sidenav .navbox .nv .line{
+    width: 70%;
+    background-color:#fc9105c5;
+    height: 2px;
+    transform: translateX(-120%);
+    margin-top: 7px;
+    transition: all 1s ease;
+}
+.sidenav .navbox .nv:nth-child(1) .line{
+    width: 50%;
+}
+.sidenav .navbox .nv:nth-child(4) .line{
+    width: 50%;
+}
+.sidenav .navbox .nv:nth-child(6) .line{
+    width: 80%;
+}
+.sidenav .navbox .nv:hover a{
+    color: rgba(248, 216, 175, 0.747);
+    font-family: 'Poppins', sans-serif;
+}
+.sidenav .navbox .nv:hover .line{
+    transform: translateX(0%);
+}
+.sidenav .closebtn{
+    position: absolute;
+    top: 25px;
+    right:15px;
+    padding: 0px;
+    cursor: pointer;
+    font-size: 1.4rem;   
+    transition: all 0.5s ease-in-out;
+    color: #fc9105;
+}
+.sidenav .closebtn:hover{
+    color: #fff;
+}
+.landing{
+    background: #ccbead8e;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.clip{
+    padding: 30px;
+    background-image: url("https://images.unsplash.com/photo-1507680576301-98c2029cf434?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjd8fHdhdGNofGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60");
+    background-size: 100% 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    clip-path: polygon(100% 0%,0% 0%,0 70%,50% 100%,100% 70%);
+    padding-bottom: 80px;
+}
+.entry{
+    display: flex;
+    justify-content: center;
+    flex-direction: column-reverse;
+    align-items: center;
+    width: 100%;
+    z-index: 2;
+}
+.over{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #633c01b6;
+}
+.imgbox{
+    height: 200px;
+    width: 200px;
+}
+.txtbox{
+    max-width: 80%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.txtbox h6{
+    font-size: 1rem;
+    color: rgba(252, 213, 190, 0.747);
+    letter-spacing: 7px;
+    text-transform: capitalize;
+    font-family: 'Great Vibes', cursive;
+}
+.txtbox h1{
+    color: #f7f7f7;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-top: 10px;
+    text-shadow: 1px 1px 2px #474747;
+    font-size: 2rem;
+    letter-spacing: 5px;
+    font-family: 'MedievalSharp', cursive;
+}
+.txtbox p{
+    font-size: 1.2rem;
+    color: #c0bfbd;
+    font-weight: 500;
+    margin-top: 10px;
+    line-height: 1.5rem;
+    letter-spacing: 2px;
+}
+.txtbox .btnbox{
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+}
+.txtbox .btn{
+    margin:7px 0;
+    border: 3px solid #fff;
+    padding:10px;
+    font-weight: 500;
+    color: #f7f7f7;
+    font-family: 'Poppins', sans-serif;  
+    transition: all 1s ease;
+    letter-spacing: 2.5px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+.txtbox .btn:hover{
+    background-color: #050300;
+    color: #fc9105;
+    font-size: 1rem;
+}
+.txtbox .btn:hover a{
+    background-color: #050300;
+    color: #fc9105;
+    font-size: 1rem;
+}
+.txtbox .btn a{
+    text-decoration: none;
+    font-weight: 500;
+    color: #f7f7f7;
+    font-family: 'Poppins', sans-serif;  
+    transition: all 1s ease;
+    letter-spacing: 2.5px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+.txtbox .btn b{
+    font-weight: 900;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 2px #474747;
+    padding: 5px;
+}
+.imgbox img{
+    height: 100%;
+    width: 100%;
+}
+.landing .extra{
+    margin-top: 0px;
+}
+.landing .extra .text{
+    display: flex;
+    flex-direction: column;
+    padding:5px;
+    text-transform: uppercase;
+}
+.landing .extra .text h5{
+    font-family: 'Roboto',sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    text-align: right;
+    letter-spacing: 1px;
+}
+.landing .extra .text h6{
+    font-family: 'Raleway',sans-serif;
+    font-weight: 900;
+    font-size: .8rem;
+    text-align: right;
+    letter-spacing: .5px;
+    font-style: italic;
+}
+.landing .extra .box{
+    display: flex;
+    flex-direction: row;
+}
+.landing .extra .box .subbox{
+    display: flex;
+    flex-direction: row;
+    padding:10px;
+}
+.landing .extra .box .subbox .sub{
+    display: flex;
+    flex-direction: row;   
+    margin-right:5px;
+}
+.landing .extra .box .subbox .sub .f{
+    display: grid;
+    place-items: center;
+}
+.landing .extra .box .subbox .sub .f i{
+    font-size: 1.2rem;
+    padding: 10px;
+    border-radius: 100%;
+    background-color: #000;
+    color: #fc9105;
+    box-shadow: 0 .5vmin .5vmin .5vmin rgba(10, 10, 10, 0.11);
+}
+.landing .extra .box .subbox .sub .ft{
+    max-width: 100px;
+    margin: 0 10px;
+    padding-left: 15px;
+    border-left: 5px solid #222;
+    text-transform: uppercase;
+    font-size: .8rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+.features{
+    padding: 20px;
+    background: #fcf3e7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.features .txtbox p{
+    font-family: 'Raleway',sans-serif;
+    font-weight: 900;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1rem;
+    color: #180d00;
+    letter-spacing: 0;
+}
+.features .txtbox p b{
+    color: #fc9105;
+    font-weight: 900;
+    font-family: 'Raleway',sans-serif;
+} 
+.features .txtbox h6{
+    font-size: 1rem;
+    color: #57554e;
+    font-weight: 500;
+    margin-top: 10px;
+    line-height: 1.7rem;
+    letter-spacing: 0;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 15px;
+    text-transform: none;
+}
+.features .featurebox{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.features .featurebox .subbox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.features .featurebox .subbox .fbox{
+    display: flex;
+    flex-direction:row;
+    margin: 25px 0;
+    background: #f6f6f6;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 2.5px solid #dad9d88e;
+    transition: all .5s linear;
+    cursor: pointer;
+}
+.features .featurebox .subbox .fbox .icon{
+    background: #dad9d88e;
+    padding: 10px;
+    display: grid;
+    place-items: center;
+    font-size: 1.2rem;
+    color: #57554e;
+    transition: all .5s linear;
+}
+.features .featurebox .subbox .fbox .desc{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 5px;
+}
+.features .featurebox .subbox .fbox .desc h6{
+    color: rgb(5, 0, 7);
+    font-weight: 700;
+    font-family: 'Raleway',sans-serif;
+    font-size: .9rem;
+    transition: all .5s linear;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.features .featurebox .subbox .fbox .desc p{
+    font-size: 1rem;
+    color: #57554e;
+    font-weight: 500;
+    margin-top: 10px;
+    line-height: 1.5rem;
+    letter-spacing: 0;
+    font-family: 'Roboto', sans-serif;
+    width: 95%;
+    text-align: center;
+}
+.features .featurebox .subbox .fbox:hover{
+    border: 2.5px solid #fc9105;
+}
+.features .featurebox .subbox .fbox:hover .icon{
+    background-color: #fc9105;
+    color: #f6f6f6;
+    border: none;
+}
+.features .featurebox .subbox .fbox:hover .desc h6{
+    color: #fc9105;
+}
+.shop{
+    padding: 20px;
+    background: #fdfcfa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.shop .txtbox p{
+    font-family: 'Raleway',sans-serif;
+    font-weight: 900;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size:1.7em;
+    color: #180d00;
+    letter-spacing: 0;
+    line-height:2.2rem;
+}
+.shop .txtbox p b{
+    color: #fc9105;
+    font-weight: 900;
+    font-family: 'Raleway',sans-serif;
+}
+.categorybox{
+    margin-top: 25px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.categorybox .catbox{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.categorybox .catbox .head{
+    text-align: left;
+    text-transform: uppercase;
+    overflow: hidden;
+    cursor: pointer;
+}
+.categorybox .catbox .head h3{   
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding-bottom: 7px;
+    position: relative;
+    width: auto;
+    transition: all 1s ease;
+}
+.categorybox .catbox .head h3:before{
+    content: "";
+    position: absolute;
+    width: 120%;
+    background-color:#fc9105;
+    height: 2px;
+    transform: translateX(120%);
+    margin-top: 25px;
+    transition: all 1s ease;
+}
+.categorybox .catbox .head:hover h3{
+    color: #fc9105;
+}
+.categorybox .catbox .head:hover h3:before{
+    transform: translateX(0%);
+}
+.categorybox .catbox .watchslider{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
+}
+.categorybox .catbox .watchslider .slide{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    
+}
+.categorybox .catbox .watchslider .slide .in{
+    padding: 5px;
+    display: grid;
+    place-items: center;
+}
+.categorybox .catbox .watchslider .slide .in i{
+    font-weight: 900;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 100%;
+}
+.categorybox .catbox .watchslider .slide .in i:hover{
+    background-color: #000;
+    color: #fc9105;
+}
+.categorybox .catbox .watchslider .slide .content .sl{
+    width: 250px;
+    height: 100%;
+    border: 1px solid #57554eb0;
+    display: inline-block;
+    margin: 0 5px;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: all .5s ease-in-out;
+}
+.categorybox .catbox .watchslider .slide .content .sl:hover{
+    border: 1px solid #fc9105;
+}
+.categorybox .catbox .watchslider .slide .content .sl .imgbox{
+    height: 170px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.categorybox .catbox .watchslider .slide .content .sl .imgbox div{
+    position: absolute;
+}
+.categorybox .catbox .watchslider .slide .content .sl .imgbox img{
+    height: 100%;
+    width: 100%;
+    transition: all .5s ease-in-out;
+}
+.categorybox .catbox .watchslider .slide .content .sl .imgbox:hover img{
+    transform: scale(1.2, 1.2);
+}
+.categorybox .catbox .watchslider .slide .content .sl .imgbox .cart{
+    width: 100%;
+    background-color: #fc9105;
+    color: #eee;
+    bottom: 0;
+    padding: 5px;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 2px;
+    font-size: .8rem;
+    transform: translateY(150%);
+    transition: all .5s ease-in-out;
+}
+.categorybox .catbox .watchslider .slide .content .sl .imgbox .cart:hover{
+    background-color: #000;
+    color: #fc9105;
+}
+.categorybox .catbox .watchslider .slide .content .sl .imgbox .like:hover{
+    background-color: #000;
+    color: #fc9105;
+}
+.categorybox .catbox .watchslider .slide .content .sl .imgbox .copy:hover{
+    background-color: #000;
+    color: #fc9105;
+}
+.categorybox .catbox .watchslider .slide .content .sl .imgbox .view:hover{
+    background-color: #000;
+    color: #fc9105;
+}
+.categorybox .catbox .watchslider .slide .content .sl .imgbox:hover .cart{
+    transform: translateY(0%);
+}
+.categorybox .catbox .watchslider .slide .content .sl .imgbox .like{
+    top: 5px;
+    right: 5px;
+    font-size: 15px;
+    height: 25px;
+    width: 25px;
+    background-color: #fc9105;
+    display: grid;
+    place-items: center;
+    transform: translateX(150%);
+    transition: all .25s ease-in-out;
+    color: #eee;
+}
+.categorybox .catbox .watchslider .slide .content .sl .imgbox:hover .like{
+    transform: translateX(0%);
+}
+.categorybox .catbox .watchslider .slide .content .sl .imgbox .copy{
+    top: 35px;
+    right: 5px;
+    font-size: 15px;
+    height: 25px;
+    width: 25px;
+    background-color: #fc9105;
+    color: #eee;
+    display: grid;
+    place-items: center;
+    transform: translateX(150%);
+    transition: all .5s ease-in-out;
+}    
+.categorybox .catbox .watchslider .slide .content .sl .imgbox .view{
+    top: 65px;
+    right: 5px;
+    font-size: 15px;
+    height: 25px;
+    width: 25px;
+    background-color: #fc9105;
+    color: #eee;
+    display: grid;
+    place-items: center;
+    transform: translateX(150%);
+    transition: all .75s ease-in-out;
+}
+.categorybox .catbox .watchslider .slide .content .sl .imgbox:hover .copy{
+    transform: translateX(0%);
+}
+.categorybox .catbox .watchslider .slide .content .sl .imgbox:hover .view{
+    transform: translateX(0%);
+}
+.categorybox .catbox .watchslider .slide .content .sl .desc{
+    height: 50px;
+    width: 100%;
+    background-color: #fffefd;
+    display: flex;
+    flex-direction: column;
+    padding-left:5px;
+    color: #57554e;
+}
+.categorybox .catbox .watchslider .slide .content .sl .desc .starbox{
+    display: flex;
+    flex-direction: row;
+    font-size: .8rem;
+    margin-top: 5px;
+}
+.categorybox .catbox .watchslider .slide .content .sl .desc .name{
+    margin-top: 2.5px;
+    font-weight: 700;
+    text-transform: capitalize;
+    font-size: .9rem;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+}
+.categorybox .catbox .watchslider .slide .content .sl .desc .price{
+    margin-top: 2.5px;
+    font-size: .9rem;
+}
+.categorybox .catbox .watchslider .slide .content .sl .desc .price b{
+    color: #000;
+}
+.categorybox .catbox .watchslider .slide .content{
+    float: left;
+    width: 100%;
+    height: 250px;
+    margin: 1px;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 5px;
+}
+.categorybox .catbox .morebox{
+    text-align: center;
+    text-transform: uppercase;
+    overflow: hidden;
+    cursor: pointer;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+}
+.categorybox .catbox .morebox h6{
+    font-weight: 600;
+    font-family: 'Roboto', sans-serif;
+    font-size: .7rem;
+    letter-spacing: 2px;
+    transition: all 1s ease;
+}
+.categorybox .catbox .morebox i{
+    font-size: 1rem;
+    transition: all 1s ease;
+}
+.categorybox .catbox .morebox:hover h6{
+    color:#fc9105;
+    font-weight: 900;
+}
+.categorybox .catbox .morebox:hover i{
+    color:#fc9105;
+    font-weight: 900;
+}
+.faq{
+    background-color: black;
+}
+.faq .back{
+    background-color: #2d3436;
+    background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%);
+    position:static;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    padding: 20px 10px;
+    z-index: 2;
+}
+.faq .back .text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.faq .back .text h1{
+    font-family: 'Raleway', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    letter-spacing: 7px;
+    background: -webkit-linear-gradient(30deg, #fc9105, #fdb557);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.faq .back .text p{
+    text-transform: uppercase;
+    font-size: .8rem;
+    font-family: 'Poppins', sans-serif;
+    color: #eee;
+    font-weight: 700;
+    letter-spacing: 5px;
+}
+.faq .faqbox{
+    display: flex;
+    flex-direction: column;
+    background-color: #eee;
+    padding: 50px;
+    z-index: 10;
+}
+.faq .faqbox .subbox{
+    display: flex;
+    flex-direction: column;
+}
+.faq .faqbox .quesbox{
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+}
+.faq .faqbox .quesbox .quesubbox{
+    display: flex;
+    flex-direction: column;
+    background-color: #fffefd;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 7px 7px 3px #1111;
+    cursor: pointer;
+}
+.faq .faqbox .quesbox .quesubbox .que{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+}
+.faq .faqbox .quesbox .quesubbox .que p{
+    font-family: 'Roboto', sans-serif;
+    color: #57554e;
+    font-weight: 600;
+    transition: all 0.5s ease-in-out;
+    letter-spacing: 1px;
+    height: 100%;
+    line-height: 1.5rem;
+}
+.faq .faqbox .quesbox .quesubbox:hover .que p{
+    color:#fc9105;
+}
+.faq .faqbox .quesbox .quesubbox .que i{
+    cursor: pointer;
+    height: 100%;
+    padding: 10px;
+    margin-left: 50px;
+    text-align: right;
+    float: right;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    transition: all 0.5s ease-in-out;
+}
+.faq .faqbox .quesbox .quesubbox .que i:hover{
+    color: #fc9105;
+}
+.faq .faqbox .quesbox .quesubbox .ans{
+    display: none;
+    margin-top: 15px;
+    color: #000;
+    transition: all 0.5s ease-in-out;
+}
+.faq .faqbox .quesbox .quesubbox .ans p{
+    font-size: .8rem;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1.5px;
+    line-height: 1.2rem;
+}
+.rotate{
+    transform: rotate(180deg);
+}
+.feedback{
+    padding:20px 10px;
+    padding-bottom: 50px;
+    background: #dfdedecc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.feedback .txtbox p{
+    font-family: 'Raleway',sans-serif;
+    font-weight: 900;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    color: #180d00;
+    letter-spacing: 0;
+    line-height:2.2rem;
+}
+.feedback .txtbox p b{
+    color: #fc9105;
+    font-weight: 900;
+    font-family: 'Raleway',sans-serif;
+} 
+.feed{
+    margin-top: 50px;
+}
+.feed .slide{
+    width: 90vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.feed .slide .in{
+    width: 5%;
+    display: grid;
+    place-items: center;
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+.feed .slide .in.sleft{
+    margin-right: 10px;
+}
+.feed .slide .in.sright{
+    margin-left: 5px;
+}
+.feed .slide .in i{
+    padding: 7px;
+    border-radius: 50%;
+    transition: all 0.5s ease-in-out;
+}
+.feed .slide .in i:hover{
+    background-color: #000;
+    color: #fc9105;
+}
+.csl{
+    width: 80vw;
+    height: 350px;
+    position: relative;
+    box-shadow: 0 7px 7px 7px rgba(17, 17, 17, 0.055);
+}
+.csl .background{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0;
+}
+.csl .background img{
+    height: 100%;
+    width: 100%;
+}
+.csl .profilebox{
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10!important;
+}
+.csl .profilebox .reviewcircle{
+    width: 260px;
+    height: 260px;
+    border-radius: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.csl .profilebox .reviewcircle .txt{
+    width: 100%;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    text-align: center;
+    line-height: 1.3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 5px double #ccc;
+    background-color: #ccc;
+    justify-content: center;
+    border-radius: 100%;
+    padding: 10px 20px;
+}
+.csl .profilebox .reviewcircle .quote{
+    margin-top: 15px;
+    margin-bottom: 8px;
+    font-size: 1.5rem;
+    color: #fc9105;
+}
+.csl .profilebox .reviewcircle .text{
+    margin-top: 5px;
+}
+.csl .profilebox .reviewcircle .name{
+    text-transform: uppercase;
+    margin-top: 8px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 900;
+    letter-spacing: 2px;
+    padding-top: 5px;
+    color: #fc9105;
+    border-top: 2.5px solid #fc9105;
+}
+.csl .profilebox .profile{
+    width: 90px;
+    height: 90px;
+    background-color:#ccc;
+    display: grid;
+    place-items: center;
+    border-radius: 100%;
+    z-index: 20!important;
+    position: absolute;
+}
+.csl .profilebox .profile img{
+    height:80px;
+    width: 80px;
+    border-radius: 100%;
+
+}
+.feedback .newsletter{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.feedback .newsletter .head{
+    margin-top: 20px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.feedback .newsletter .head p{   
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding-bottom: 12px;
+    position: relative;
+    width: auto;
+    transition: all 1s ease;
+    font-size: 1.5rem;
+}
+.feedback .newsletter .head p:before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    background-color:#fc9105;
+    height: 2px;
+    transform: translateX(-120%);
+    margin-top: 30px;
+    transition: all 1s ease;
+}
+.feedback .newsletter .head:hover p{
+    color: #fc9105;
+}
+.feedback .newsletter .head:hover p:before{
+    transform: translateX(0%);
+}
+.feedback .newsletter .txt{
+    margin-top: 20px;
+    font-size: .8rem;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1.5px;
+    line-height: 1.2rem;
+    color: #57554e;
+    text-align: center;
+}
+.feedback .newsletter .input{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 40px;
+    width: 100%; 
+    overflow: hidden;
+    transition: all .5s ease-in-out;
+}
+.feedback .newsletter .input input{
+    padding: 5px;
+    width: 78%; 
+    border: none;
+    outline: none;
+    height: 100%;
+    border: 1px solid #d1d1d177;
+    border-radius: 2.5px;
+}
+.feedback .newsletter .input input:hover{
+    border: 1px solid #fc9105;
+    
+}
+.feedback .newsletter .input button{
+    padding: 5px;
+    width: 20%; 
+    border: none;
+    outline: none;
+    height: 100%;
+    cursor: pointer;
+    background-color: #fc9105;
+    color: #eee;
+    padding: 5px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: .9rem;
+    border-radius: 2.5px;
+    transition: all .5s ease-in-out;
+}
+.feedback .newsletter .input button:hover{
+    background-color: #000;
+    color: #fc9105;
+}
+.contact{
+    background-color: #000;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.contact .box{
+    display: flex;
+    flex-direction: column;
+}
+.contact .box .subbox{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 10px;
+    padding: 10px;
+}
+.contact .box .subbox:last-child{
+    margin-top: 25px;
+}
+.contact .box .subbox .sb{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #57554e;
+    transition: all .5s ease-in-out;
+    cursor: pointer;
+}
+.contact .box .subbox .sb:hover{
+    color: #fc9105;
+}
+.contact .box .subbox .sb i{
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+.contact .box .subbox .sb p{
+    font-weight: 700;
+    margin-top: 10px;
+    color: #ccc;
+    transition: all .5s ease-in-out;
+}
+.contact .box .subbox .sb:hover p{
+    color: #fc9105;
+}
+.contact .box .subbox .sb h6{
+    margin-top: 7px;
+}
+.contact .b2{
+    margin-top: 50px;
+    padding-left: 15px;
+}
+.contact .b2 .head{
+    text-align: left;
+    text-transform: uppercase;
+    overflow: hidden;
+    cursor: pointer;
+}
+.contact .b2 h5{
+    color: #ccc;
+    font-size: 1.2rem;
+    transition: all .5s ease-in-out;
+    cursor: pointer;
+    padding-bottom: 7px;
+    position: relative;
+    width: auto;
+}
+.contact .b2 .head h5:before{
+    content: "";
+    position: absolute;
+    width: 30%;
+    background-color:#fc9105;
+    height: 2px;
+    transform: translateX(-120%);
+    margin-top: 25px;
+    transition: all 1s ease;
+}
+.contact .b2 h5:hover{
+    color:#fc9105;
+}
+ .contact .b2 .head:hover h5:before{
+    transform: translateX(0%);
+}
+.contact .b2 .bbox div{
+    color: #57554e;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+}
+.contact .b2 .bbox div i{
+    background: -webkit-linear-gradient(90deg, #fc9105, #fda839);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-right: 15px;
+    display: grid;
+    place-items: center;
+}
+.contact .b2 .bbox div p{
+    line-height: 1.5rem;
+    letter-spacing: 1px;
+    word-spacing: 5px;
+    font-size: .9rem;
+    font-weight: 900;
+}
+.contact .b3{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content:center;
+    margin-top: 30px;
+}
+.contact .b3 .i{
+    height: 35px;
+    width: 35px;
+    display: grid;
+    place-items: center;
+    border-radius: 100%;
+    background-color: #ccc;
+    color: #57554e;
+    margin: 0 5px;
+    transition: all .5s ease-in-out;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.contact .b3 .i:hover{
+    background-color:#fc9105;
+    color: #000;
+}
+.contact .footer{
+    color: #57554e;
+    font-size: 15px;
+    width: 100%;
+    margin-top: 30px;
+    text-align: center;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+.main{
+    height:100%;
+    width:100vw;
+    position:fixed;
+    overflow:hidden;
+    top: 0;
+    left: 0;
+    background-color:rgb(1, 0, 15);
+    z-index: 50;
+}
+.lbox{
+    height:300px;
+    width:300px;
+    padding:30px;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%) scale(0.3);
+    transform-style:preserve-3d;
+    position:absolute;
+    z-index:100;
+}
+.lbox .box{
+    height:250px;
+    width:250px;
+    background-color:transparent;
+    padding:30px;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    transform-style:preserve-3d;
+    position:absolute;
+}
+.lbox .box2{
+    transform:translate(-50%,-50%) rotate(30deg);
+}
+.lbox .box3{
+    transform:translate(-50%,-50%) rotate(-45deg);
+}
+.lbox .box4{
+    transform:translate(-50%,-50%) rotate(60deg);
+}
+.lbox .box5{
+    transform:translate(-50%,-50%) rotate(-75deg);
+}
+.lbox .box6{
+    transform:translate(-50%,-50%) rotate(105deg);
+}
+.lbox .box7{
+    transform:translate(-50%,-50%) rotate(-120deg);
+}
+.lbox .box8{
+    transform:translate(-50%,-50%) rotate(135deg);
+}
+.lbox .box9{
+    transform:translate(-50%,-50%) rotate(-150deg);
+}
+.lbox .box10{
+    transform:translate(-50%,-50%) rotate(165deg);
+}
+.lbox .b1{
+    height:100%;
+    width:100%;
+    border:2px solid transparent;
+    animation:r1 7s linear both infinite;
+    transform:perspective(1000px) translateZ(100%) rotate(-360deg);
+}
+@keyframes r1{
+    0%{
+        transform:perspective(1000px) rotateX(0deg) rotate(-360deg);
+    }
+    
+    100%{
+        transform:perspective(1000px) rotateX(360deg) rotate(360deg);
+    }
+}
+
+.lbox .b{
+    border-image:linear-gradient(45deg, #ed992c, #fc7404, #fcb32b, #f09253, #fedab9);
+    border-image-slice:1;
+}
+.main button{
+    color:#fc9105;
+    text-transform: uppercase;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    letter-spacing: 5px;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #fc9105;
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    background: hsla(34, 98%, 50%, 0.1);
+    position: absolute;
+    bottom: 20px;
+    right: 40px;
+}
+.main button:hover{
+    background: hsla(34, 98%, 50%, 0.5);
+}
+.sec{
+    display: none;
+}
+
+
+@media (min-width:1200px){  
+    .clip{
+        flex-direction: row;
+        padding:100px 50px;
+    }
+    .imgbox{
+        height: 250px;
+        width: 250px;
+    }
+    .entry{
+        flex-direction: row;
+    }
+    .txtbox{
+        max-width: 80%;
+    }
+    .txtbox h6{
+        font-size: 1.3rem;
+    }
+    .txtbox h1{
+        font-size: 3rem;
+        margin-top: 10px;
+    }
+    .txtbox p{
+        font-size: 1.5rem;
+        margin-top: 15px;
+        line-height: 2rem;
+    }
+    .txtbox .btnbox{
+        flex-direction: row;
+        margin-top: 30px;
+    }
+    .txtbox .btn{
+        margin:0 10px;
+        padding:15px;
+        font-size: 1rem;
+        letter-spacing: 5px;
+    }
+    .txtbox .btn:hover{
+        font-size: 1.2rem;
+    }
+    .hambox{
+        right: 30px;
+        padding: 30px;
+        font-size: 2rem;
+    }
+    .sidenav{
+        width: 30vw;
+    }
+    .sidenav .navbox .nv a{
+        font-size: 1.5rem;
+    }
+    .sidenav .navbox .nv{
+        margin-top: 7px;
+    }
+    .sidenav .closebtn{
+        top: 15px;
+        right:15px;
+        font-size: 1.7rem;
+    }
+    .landing .extra .box{
+        padding: 0 50px;
+    }
+    .landing .extra .box .subbox{
+        padding: 50px;
+    }
+    .landing .extra .box .subbox .sub{  
+        margin-right: 70px;
+    }
+    .landing .extra .box .subbox .sub .f i{
+        font-size: 2rem;
+        padding: 20px;
+    }
+    .landing .extra .box .subbox .sub .ft{
+        min-width: 250px;
+        margin: 0 30px;
+        padding-left: 25px;
+        font-size: 1.2rem;
+        line-height: 1.5rem;
+    }
+    .landing .extra .text{
+        padding: 40px 60px;
+    }
+    .landing .extra .text h5{
+        font-size: 2.5rem;
+        letter-spacing: 5px;
+    }
+    .landing .extra .text h6{
+        font-size: 2rem;
+        letter-spacing: 3px;
+    }
+    .features{
+        padding: 50px 80px;
+    }
+    .shop{
+        padding: 50px 40px;
+    }
+    .features .txtbox p{
+        font-size: 2rem;
+        letter-spacing: 2px;
+        line-height: 2.5rem;
+        width: 80%;
+    }
+    .features .txtbox h6{
+        font-size: 1.5rem;
+        margin-top: 25px;
+        line-height: 2.5rem;
+        letter-spacing: 2px;
+    }
+    .features .featurebox .subbox{
+        flex-direction: row;
+    }
+    .features .featurebox .subbox.s2{
+        margin-top: 50px;
+    }
+    .features .featurebox .subbox .fbox{
+        margin: 0 25px;
+        width: 30%;
+    }
+    .features .featurebox .subbox .fbox .icon{
+        padding: 20px;
+    }
+    .features .featurebox .subbox .fbox .desc{
+        padding: 15px;
+    }
+    .features .featurebox .subbox .fbox .desc h6{
+        font-size: 1rem;
+    }
+    .features .featurebox .subbox .fbox .desc p{
+        font-size: 1rem;
+        margin-top: 15px;
+        line-height: 1.5rem;
+    }
+    .shop .txtbox p{
+        font-size: 3.2rem;
+        line-height: 3.7rem;
+    }
+    .categorybox .catbox{
+        margin-top: 60px;
+    }
+    .categorybox .catbox .head h3{
+        font-size: 2rem;
+    }
+    .categorybox .catbox .head h3:before{
+        margin-top: 35px;
+    }
+    .categorybox .catbox .morebox{
+        flex-direction: row;
+    }
+    .categorybox .catbox .morebox h6{
+        font-size: 1rem;
+    }
+    .categorybox .catbox .morebox i{
+        font-size: 1rem;
+        margin-left: 5px;
+    }
+    .categorybox .catbox .watchslider{
+        margin-top: 25px;
+    }
+    .categorybox .catbox .morebox{
+        margin-top: 20px;
+    }
+    .categorybox .catbox .watchslider .slide .content{
+        height: 300px;
+    }
+    .categorybox .catbox .watchslider .slide .content .sl{
+        width: 400px;
+    }
+    .categorybox .catbox .watchslider .slide .content .sl .imgbox{
+        height: 220px;
+    } 
+    .categorybox .catbox .watchslider .slide .content .sl .imgbox .cart{
+        font-size: 1rem;
+        padding: 7px;
+    }    
+    .categorybox .catbox .watchslider .slide .content .sl .imgbox .like{
+        top: 5px;
+        right:10px;
+        font-size: 20px;
+        height: 35px;
+        width: 35px;
+    }
+    .categorybox .catbox .watchslider .slide .content .sl .imgbox .copy{
+        top: 45px;
+        right:10px;
+        font-size: 20px;
+        height: 35px;
+        width: 35px;;
+    }    
+    .categorybox .catbox .watchslider .slide .content .sl .imgbox .view{
+        top: 85px;
+        right:10px;
+        font-size: 20px;
+        height: 35px;
+        width: 35px;
+    }     
+    .faq .back{
+        padding: 50px 10px;
+    }
+    .faq .back .text h1{
+        font-size: 4rem;
+        letter-spacing: 35px;
+    }
+    .faq .back .text p{
+        font-size: 1.5rem;
+        letter-spacing: 10px;
+        margin-top: 5px;
+    }
+    .faq .faqbox{
+        padding: 70px 70px;
+    }
+    .faq .faqbox .quesbox .quesubbox .que p{
+        font-size: 1.25rem;
+        letter-spacing: 1.5px;
+        line-height: 1.75rem;
+    }
+    .faq .faqbox .quesbox .quesubbox .que i{
+        font-size: 1.25rem;
+    }
+    .faq .faqbox .quesbox .quesubbox .ans p{
+        font-size: 1rem;
+        letter-spacing: 2px;
+        line-height: 1.5rem;
+    }
+    .faq .faqbox .subbox{
+        flex-direction: row;
+    }
+    .faq .faqbox .subbox .ql{
+        margin-left: 50px;
+    }
+    .faq .faqbox .subbox .quesbox{
+        width: 45%;
+        height: 100%;
+    }
+    .feedback .txtbox p{
+        font-size: 2.5rem;
+        letter-spacing: 2px;
+    }
+    .feed{
+        margin-top: 80px;
+    }
+    .feed .slide{
+        width: 70vw;
+    }
+    .csl{
+        width: 60vw;
+        height: 450px;
+    }
+    .csl .profilebox{
+        width: 400px;
+        height: 400px;
+    }
+    .csl .profilebox .reviewcircle{
+        width: 350px;
+        height: 350px
+    }
+    .csl .profilebox .profile{
+        width: 120px;
+        height: 120px;
+    }
+    .csl .profilebox .profile img{
+        width: 110px;
+        height: 110px;
+    }
+    .csl .profilebox .reviewcircle .quote{
+        margin-top: 5px;
+        font-size: 2rem;
+    }
+    .csl .profilebox .reviewcircle .text{
+        margin-top: 15px;
+        font-size: 1.2rem;
+        line-height: 2rem;
+    }
+    .csl .profilebox .reviewcircle .name{
+        margin-top: 15px;
+        letter-spacing: 3px;
+        padding-top: 10px;
+        font-size: 1.5rem;
+    }
+    .feedback .newsletter{
+        margin-top: 50px;
+        padding: 50px 200px;
+    }
+    .feedback .newsletter .head p{  
+        letter-spacing: 5px;
+        padding-bottom: 22px;
+        font-size: 2.5rem;
+    }
+    .feedback .newsletter .head p:before{
+        margin-top: 50px;
+    }
+    .feedback .newsletter .txt{
+        font-size: 1.2rem;
+        letter-spacing: 2px;
+        line-height: 2.2rem;
+    }
+    .feedback .newsletter .input{
+        margin-top: 40px;
+        height:50px;
+    }
+    .feedback .newsletter .input input{
+        font-size: 1rem;
+    
+    }
+    .feedback .newsletter .input button{
+        font-size: 1rem;
+    }
+    .contact{
+        padding: 80px;
+    }
+    .contact .box{
+        display: flex;
+        flex-direction:row;
+    }
+    .contact .box .subbox{
+        width: 60%;
+        justify-content: space-around;
+    }
+    .contact .box .subbox .sb i{
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+    .contact .box .subbox .sb p{
+        margin-top: 15px;
+        font-size: 1.2rem;
+        letter-spacing: 2px;
+    }
+    .contact .box .subbox .sb h6{
+        font-size: .9rem;
+        margin-top: 5px;
+    }
+    .contact .b2{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .contact .b2 h5{
+        font-size: 1.8rem;
+    }
+    .contact .b2 .bbox{
+        display: flex;
+        flex-direction:row;
+        justify-content: space-evenly;
+        margin-top: 25px;
+    } 
+    .contact .b2 .bbox div{
+        display: flex;
+        flex-direction:column;
+        justify-content: center;
+        align-items: center;
+        width: 30%;
+        height: 100%;
+    } 
+    .contact .b2 .bbox div i{
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+    .contact .b2 .bbox div p{
+        margin-top: 15px;
+        font-size: .9rem;
+        text-align: center;
+        letter-spacing: 2px;
+    }
+    .contact .b2 .head h5:before{
+        margin-top: 35px;
+        width: 120%;
+    }
+    .contact .b3{
+        margin-top: 70px;
+        justify-content: center;
+    }
+    .contact .b3 .i{
+        height: 40px;
+        width: 40px;
+        color: #57554e;
+        margin: 0 12px;
+        font-size: 1.2rem;
+    }
+}
+    </style>
+    <div class="menu">
+        <div class="hambox" id="ham" onclick="op()">
+            <div class="over"></div>
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+    <div class="sidenav" id="sidenv">
+        <div class="navbox" id="nb">
+            <div class="nv nv1">
+                <a href="#hm"><i class="fa fa-home"></i>&nbsp Home</a>
+                <div class="line"></div>
+            </div>
+            <div class="nv nv1">
+                <a href="#fm"><i class="fas fa-clipboard-list"></i>&nbsp Features</a>
+                <div class="line"></div>
+            </div>
+            <div class="nv nv1">
+                <a href="#sm"><i class="fas fa-shopping-bag"></i>&nbsp Shopping</a>
+                <div class="line"></div>
+            </div>
+            <div class="nv nv1">
+                <a href="#fam"><i class="fas fa-question-circle"></i>&nbsp F.A.Q</a>
+                <div class="line"></div>
+            </div>
+            <div class="nv nv1">
+                <a href="#fdm"><i class="fas fa-comment-dots"></i>&nbsp Feedback</a>
+                <div class="line"></div>
+            </div>
+            <div class="nv nv1">
+                <a href="#cm"><i class="fas fa-headset"></i>&nbsp Contact Us</a>
+                <div class="line"></div>
+            </div>
+        </div>
+        <div class="closebtn" onclick="cl()">
+            <i class="far fa-times-circle"></i>
+        </div>
+    </div>
+    <section class="sec landing" id="hm">
+        <div class="clip">
+            <div class="over"></div>
+            <div class="entry">
+                <div class="txtbox">
+                <h6>Maggi Creation Presents</h6>
+                <h1>Clocksy</h1>
+                <p>In the modern era where your time is limited and an inch of your time is equivalent to tons of gold, maggi creation values your time and presents you a brand new collection of stylish and trending wrist watches at your cost, to help you keep track of your time</p>
+                <div class="btnbox">
+                    <div class="btn">
+                        <a href="#sm"><b>Buy NOW!</b></a>
+                    </div>
+                    <div class="btn">
+                        <a href="#cm"><b>Reach Us</b></a>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="extra">
+            <div class="box">
+                <div class="text">
+                    <h5>Rare</h5>
+                    <h6>Features</h6>
+                </div>
+                <div class="subbox">
+                    <div class="sub">
+                        <div class="f f1"><i class="fas fa-tablet"></i></div>
+                        <div class="ft f2">Touch Screen Projector</div>
+                    </div>
+                    <div class="sub">
+                        <div class="f f3"><i class="fas fa-fingerprint"></i></div>
+                        <div class="ft f4">Finger Touch Lock</div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="sec features" id="fm">
+        <div class="txtbox">
+            <p>Some <b>Spectacular Oppurtunities</b> That Are Offered By Us </p>
+            <h6>Clocksy after scrutining several hardware iterations, divergent software updates and a handful astounding designs, is presenting you the finest watches with stunning motifs, just out technologies, modest prices and lots more... </h6>
+        </div>
+        <div class="featurebox">
+            <div class="subbox s1">
+                <div class="fbox fb1">
+                    <div class="icon"><i class="far fa-gem"></i></div>
+                    <div class="desc">
+                        <h6>Appreciable material</h6>
+                        <p>Vast range of best quality material watches oscillating between titanium, ceramic, pvd coated, 316L stainless steel and much more. </p>
+                    </div>
+                </div>
+                <div class="fbox fb2">
+                    <div class="icon"><i class="fas fa-search"></i></div>
+                    <div class="desc">
+                        <h6>Saphire Crystal</h6>
+                        <p>Clear and scratch free glass even after frequent violent use, can withstand cracks providing you lowest chance of breaking as well as aesthetically pleasing.</p> 
+                    </div>
+                </div>
+                <div class="fbox fb3">
+                    <div class="icon"><i class="fas fa-feather"></i></div>
+                    <div class="desc">
+                        <h6>Light Weight</h6>
+                        <p>Slim and sublime style along with fine craftmanship and brushing of advance technology of carbon fiber giving it the ability to stand up against vigorous tasks.</p>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="subbox s2">
+                <div class="fbox fb1">
+                    <div class="icon"><i class="far fa-clock"></i></div>
+                    <div class="desc">
+                        <h6>Quartz Movement</h6>
+                        <p>With fewer moving parts, quartz movements are not susceptible to shock, needs no winding and cherry on the top relatively affordable.  </p>
+                    </div>
+                </div>
+                <div class="fbox fb2">
+                    <div class="icon"><i class="fas fa-umbrella"></i></div>
+                    <div class="desc">
+                        <h6>Water Resistance</h6>
+                        <p>Min 10AM water resistance making it good to even wear while swimming along with magnetic and shock resistance properties.</p>
+                    </div>
+                </div>
+                <div class="fbox fb3">
+                    <div class="icon"><i class="fas fa-cut"></i></div>
+                    <div class="desc">
+                        <h6>Durable Bands</h6>
+                        <p>Diverse variety of durable watch bands, swinging from faux leather, wooden , stainless steel, nylon, titanium, silicone, ceramic and lots more. </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="sec shop" id="sm">
+        <div class="txtbox">
+            <p>Let's <b>Find You</b> The Right Watch</p>
+        </div>
+        <div class="categorybox">
+            <div class="catbox c1">
+                <div class="head">
+                    <h3>Men's Colllection</h3>
+                    <div class="line"></div>
+                </div>                
+                <div class="watchslider">
+                    <div class="slide">
+                        <div class="in sleft"><i id="leftbtn2" class="fas fa-chevron-left" onclick="nxt(-1)"></i></div>
+                        <div class="content" id="content2">
+                            <div class="sl sl1">
+                                <div class="imgbox">
+                                    <img src="https://images.unsplash.com/photo-1611353384046-8a02bac0f14d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8bWVuJTIwd2F0Y2hlc3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60" alt="">
+                                    <div class="cart"><i class="fas fa-shopping-bag"></i>&nbsp; Add To Cart</div>
+                                    <div class="like"><i class="fas fa-heart"></i></div>
+                                    <div class="copy"><i class="fas fa-share-alt"></i></div>
+                                    <div class="view"><i class="far fa-eye"></i></div>
+                                </div>
+                                <div class="desc">
+                                    <div class="starbox">
+                                        <div class="star1"><i class="fas fa-star" style="color:#fc9105" style="color:#fc9105"></i></div>
+                                        <div class="star2"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star3"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star4"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star5"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                    </div>
+                                    <div class="name">Herenhorloge</div>
+                                    <div class="price">
+                                        <del>Rs1999</del>
+                                        <b>Rs899</b>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sl sl2">
+                                <div class="imgbox">
+                                    <img src="https://images.unsplash.com/photo-1611353229944-bcf22ddcdf09?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fG1lbiUyMHdhdGNoZXN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60" alt="">
+                                    <div class="cart"><i class="fas fa-shopping-bag"></i>&nbsp; Add To Cart</div>
+                                    <div class="like"><i class="fas fa-heart"></i></div>
+                                    <div class="copy"><i class="fas fa-share-alt"></i></div>
+                                    <div class="view"><i class="far fa-eye"></i></div>
+                                </div>
+                                <div class="desc">
+                                    <div class="starbox">
+                                        <div class="star1"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star2"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star3"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star4"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star5"><i class="fas fa-star"></i></div>
+                                    </div>
+                                    <div class="name">Vira Horlogo</div>
+                                    <div class="price">
+                                        <del>Rs4100</del>
+                                        <b>Rs1295</b>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sl sl3">
+                                <div class="imgbox">
+                                    <img src="https://images.unsplash.com/photo-1618215649872-6e3143a716ec?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fG1lbiUyMHdhdGNoZXN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60" alt="">
+                                    <div class="cart"><i class="fas fa-shopping-bag"></i>&nbsp; Add To Cart</div>
+                                    <div class="like"><i class="fas fa-heart"></i></div>
+                                    <div class="copy"><i class="fas fa-share-alt"></i></div>
+                                    <div class="view"><i class="far fa-eye"></i></div>
+                                </div>
+                                <div class="desc">
+                                    <div class="starbox">
+                                        <div class="star1"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star2"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star3"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star4"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star5"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                    </div>
+                                    <div class="name">Montre Homme</div>
+                                    <div class="price">
+                                        <del>Rs10995</del>
+                                        <b>Rs5497</b>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sl sl4">
+                                <div class="imgbox">
+                                    <img src="https://images.unsplash.com/photo-1611353230196-d43954b19316?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzB8fG1lbiUyMHdhdGNoZXN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60" alt="">
+                                    <div class="cart"><i class="fas fa-shopping-bag"></i>&nbsp; Add To Cart</div>
+                                    <div class="like"><i class="fas fa-heart"></i></div>
+                                    <div class="copy"><i class="fas fa-share-alt"></i></div>
+                                    <div class="view"><i class="far fa-eye"></i></div>
+                                </div>
+                                <div class="desc">
+                                    <div class="starbox">
+                                        <div class="star1"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star2"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star3"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star4"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star5"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                    </div>
+                                    <div class="name"> Miesten kello</div>
+                                    <div class="price">
+                                        <del>Rs12495</del>
+                                        <b>Rs7497</b>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sl sl5">
+                                <div class="imgbox">
+                                    <img src="https://images.unsplash.com/photo-1601924357840-3e50ad4dd9fd?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fHdhdGNoJTIwbWVufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60" alt="">
+                                    <div class="cart"><i class="fas fa-shopping-bag"></i>&nbsp; Add To Cart</div>
+                                    <div class="like"><i class="fas fa-heart"></i></div>
+                                    <div class="copy"><i class="fas fa-share-alt"></i></div>
+                                    <div class="view"><i class="far fa-eye"></i></div>
+                                </div>
+                                <div class="desc">
+                                    <div class="starbox">
+                                        <div class="star1"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star2"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star3"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star4"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star5"><i class="fas fa-star"></i></div>
+                                    </div>
+                                    <div class="name">Reloj Para Hombre</div>
+                                    <div class="price">
+                                        <del>Rs5000</del>
+                                        <b>Rs2555</b>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sl sl6">
+                                <div class="imgbox">
+                                    <img src="https://images.unsplash.com/photo-1524738258074-f8125c6a7588?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8d2F0Y2glMjBtZW58ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60" alt="">
+                                    <div class="cart"><i class="fas fa-shopping-bag"></i>&nbsp; Add To Cart</div>
+                                    <div class="like"><i class="fas fa-heart"></i></div>
+                                    <div class="copy"><i class="fas fa-share-alt"></i></div>
+                                    <div class="view"><i class="far fa-eye"></i></div>
+                                </div>
+                                <div class="desc">
+                                    <div class="starbox">
+                                        <div class="star1"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star2"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star3"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star4"><i class="fas fa-star"></i></div>
+                                        <div class="star5"><i class="fas fa-star"></i></div>
+                                    </div>
+                                    <div class="name">Rellotge Masculi</div>
+                                    <div class="price">
+                                        <del>Rs300</del>
+                                        <b>Rs1200</b>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="in sright" ><i id="rightbtn2" class="fas fa-chevron-right" onclick="nxt(1)"></i></div>
+                    </div>
+                </div>
+                <div class="morebox">
+                    <h6>More</h6>
+                    <i class="fas fa-sort-down"></i>
+                </div>                
+            </div>
+            <div class="catbox c2">
+                <div class="head">
+                    <h3>Women's Colllection</h3>
+                    <div class="line"></div>
+                </div>
+                <div class="watchslider">
+                    <div class="slide">
+                    <div class="in sleft"><i  id="leftbtn"  class="fas fa-chevron-left" onclick="nxt(-1)"></i></div>
+                    <div class="content" id="content">
+                    <div class="sl sl1">
+                        <div class="imgbox">
+                            <img src="https://images.unsplash.com/photo-1451477334999-a9321157a431?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8d2F0Y2glMjB3b21lbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60" alt="">
+                            <div class="cart"><i class="fas fa-shopping-bag"></i>&nbsp; Add To Cart</div>
+                            <div class="like"><i class="fas fa-heart"></i></div>
+                            <div class="copy"><i class="fas fa-share-alt"></i></div>
+                            <div class="view"><i class="far fa-eye"></i></div>
+                        </div>
+                        <div class="desc">
+                            <div class="starbox">
+                                <div class="star1"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                <div class="star2"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                <div class="star3"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                <div class="star4"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                <div class="star5"><i class="fas fa-star"></i></div>
+                            </div>
+                            <div class="name">Montre Femme</div>
+                            <div class="price">
+                                <del>Rs3500</del>
+                                <b>Rs1700</b>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sl sl2">
+                        <div class="imgbox">
+                            <img src="https://images.unsplash.com/photo-1584208123923-cc027813cbcb?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d2F0Y2glMjB3b21lbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60" alt="">
+                            <div class="cart"><i class="fas fa-shopping-bag"></i>&nbsp; Add To Cart</div>
+                            <div class="like"><i class="fas fa-heart"></i></div>
+                            <div class="copy"><i class="fas fa-share-alt"></i></div>
+                            <div class="view"><i class="far fa-eye"></i></div>
+                        </div>
+                        <div class="desc">
+                            <div class="starbox">
+                                <div class="star1"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                <div class="star2"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                <div class="star3"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                <div class="star4"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                <div class="star5"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                            </div>
+                            <div class="name">Dmes Horloge</div>
+                            <div class="price">
+                                <del>Rs11500</del>
+                                <b>Rs7200</b>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sl sl3">
+                        <div class="imgbox">
+                            <img src="https://images.unsplash.com/photo-1490915785914-0af2806c22b6?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8d2F0Y2glMjB3b21lbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60" alt="">
+                            <div class="cart"><i class="fas fa-shopping-bag"></i>&nbsp; Add To Cart</div>
+                            <div class="like"><i class="fas fa-heart"></i></div>
+                            <div class="copy"><i class="fas fa-share-alt"></i></div>
+                            <div class="view"><i class="far fa-eye"></i></div>
+                        </div>
+                        <div class="desc">
+                            <div class="starbox">
+                                <div class="star1"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                <div class="star2"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                <div class="star3"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                <div class="star4"><i class="fas fa-star"></i></div>
+                                <div class="star5"><i class="fas fa-star"></i></div>
+                            </div>
+                            <div class="name">Reloj De Mujer</div>
+                            <div class="price">
+                                <del>Rs2500</del>
+                                <b>Rs700</b>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sl sl4">
+                        <div class="imgbox">
+                            <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8d2F0Y2glMjB3b21lbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60" alt="">
+                            <div class="cart"><i class="fas fa-shopping-bag"></i>&nbsp; Add To Cart</div>
+                            <div class="like"><i class="fas fa-heart"></i></div>
+                            <div class="copy"><i class="fas fa-share-alt"></i></div>
+                            <div class="view"><i class="far fa-eye"></i></div>
+                        </div>
+                        <div class="desc">
+                            <div class="starbox">
+                                <div class="star1"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                <div class="star2"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                <div class="star3"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                <div class="star4"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                <div class="star5"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                            </div>
+                            <div class="name">Virina Horlogo</div>
+                            <div class="price">
+                                <del>Rs7500</del>
+                                <b>Rs3200</b>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sl sl5">
+                        <div class="imgbox">
+                            <img src="https://images.unsplash.com/photo-1506193095-80bc749473f2?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8d2F0Y2glMjB3b21lbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60" alt="">
+                            <div class="cart"><i class="fas fa-shopping-bag"></i>&nbsp; Add To Cart</div>
+                            <div class="like"><i class="fas fa-heart"></i></div>
+                            <div class="copy"><i class="fas fa-share-alt"></i></div>
+                            <div class="view"><i class="far fa-eye"></i></div>
+                        </div>
+                        <div class="desc">
+                            <div class="starbox">
+                                <div class="star1"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                <div class="star2"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                <div class="star3"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                <div class="star4"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                <div class="star5"><i class="fas fa-star"></i></div>
+                            </div>
+                            <div class="name">Kvinders ur</div>
+                            <div class="price">
+                                <del>Rs4700</del>
+                                <b>Rs1300</b>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sl sl6">
+                        <div class="imgbox">
+                            <img src="https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8d2F0Y2glMjB3b21lbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60" alt="">
+                            <div class="cart"><i class="fas fa-shopping-bag"></i>&nbsp; Add To Cart</div>
+                            <div class="like"><i class="fas fa-heart"></i></div>
+                            <div class="copy"><i class="fas fa-share-alt"></i></div>
+                            <div class="view"><i class="far fa-eye"></i></div>
+                        </div>
+                        <div class="desc">
+                            <div class="starbox">
+                                <div class="star1"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                <div class="star2"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                <div class="star3"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                <div class="star4"><i class="fas fa-star"></i></div>
+                                <div class="star5"><i class="fas fa-star"></i></div>
+                            </div>
+                            <div class="name">Dames kyk</div>
+                            <div class="price">
+                                <del>Rs18900</del>
+                                <b>Rs10895</b>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="in sright" ><i id="rightbtn"  class="fas fa-chevron-right" onclick="nxt(1)"></i></div>
+                    </div>
+                </div>
+                <div class="morebox">
+                    <h6>More</h6>
+                    <i class="fas fa-sort-down"></i>
+                </div>
+            </div>
+            <div class="catbox c3">
+                <div class="head">
+                    <h3>Unisex Colllection</h3>
+                    <div class="line"></div>
+                </div>
+                <div class="watchslider">
+                    <div class="slide">
+                        <div class="in sleft"><i id="leftbtn3" class="fas fa-chevron-left" onclick="nxt(-1)"></i></div>
+                        <div class="content" id="content3">
+                            <div class="sl sl1">
+                                <div class="imgbox">
+                                    <img src="https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZGlnaXRhbCUyMHdhdGNofGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60" alt="">
+                                    <div class="cart"><i class="fas fa-shopping-bag"></i>&nbsp; Add To Cart</div>
+                                    <div class="like"><i class="fas fa-heart"></i></div>
+                                    <div class="copy"><i class="fas fa-share-alt"></i></div>
+                                    <div class="view"><i class="far fa-eye"></i></div>
+                                </div>
+                                <div class="desc">
+                                    <div class="starbox">
+                                        <div class="star1"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star2"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star3"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star4"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star5"><i class="fas fa-star"></i></div>
+                                    </div>
+                                    <div class="name">Montre Numerique</div>
+                                    <div class="price">
+                                        <del>Rs13500</del>
+                                        <b>Rs8200</b>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sl sl2">
+                                <div class="imgbox">
+                                    <img src="https://images.unsplash.com/photo-1612101678636-69a6daeb076e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8ZGlnaXRhbCUyMHdhdGNofGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60" alt="">
+                                    <div class="cart"><i class="fas fa-shopping-bag"></i>&nbsp; Add To Cart</div>
+                                    <div class="like"><i class="fas fa-heart"></i></div>
+                                    <div class="copy"><i class="fas fa-share-alt"></i></div>
+                                    <div class="view"><i class="far fa-eye"></i></div>
+                                </div>
+                                <div class="desc">
+                                    <div class="starbox">
+                                        <div class="star1"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star2"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star3"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star4"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star5"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                    </div>
+                                    <div class="name">Digitaalne Kell</div>
+                                    <div class="price">
+                                        <del>Rs14700</del>
+                                        <b>Rs9890</b>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sl sl3">
+                                <div class="imgbox">
+                                    <img src="https://images.unsplash.com/photo-1569411032431-07598b0012c2?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8ZGlnaXRhbCUyMHdhdGNofGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60" alt="">
+                                    <div class="cart"><i class="fas fa-shopping-bag"></i>&nbsp; Add To Cart</div>
+                                    <div class="like"><i class="fas fa-heart"></i></div>
+                                    <div class="copy"><i class="fas fa-share-alt"></i></div>
+                                    <div class="view"><i class="far fa-eye"></i></div>
+                                </div>
+                                <div class="desc">
+                                    <div class="starbox">
+                                        <div class="star1"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star2"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star3"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star4"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star5"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                    </div>
+                                    <div class="name">Digitaal Horloge</div>
+                                    <div class="price">
+                                        <del>Rs5799</del>
+                                        <b>Rs1575</b>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sl sl4">
+                                <div class="imgbox">
+                                    <img src="https://images.unsplash.com/photo-1560779690-96fa7f71eec2?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGRpZ2l0YWwlMjB3YXRjaHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60" alt="">
+                                    <div class="cart"><i class="fas fa-shopping-bag"></i>&nbsp; Add To Cart</div>
+                                    <div class="like"><i class="fas fa-heart"></i></div>
+                                    <div class="copy"><i class="fas fa-share-alt"></i></div>
+                                    <div class="view"><i class="far fa-eye"></i></div>
+                                </div>
+                                <div class="desc">
+                                    <div class="starbox">
+                                        <div class="star1"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star2"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star3"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star4"><i class="fas fa-star"></i></div>
+                                        <div class="star5"><i class="fas fa-star"></i></div>
+                                    </div>
+                                    <div class="name">Reloj Digital</div>
+                                    <div class="price">
+                                        <del>Rs4999</del>
+                                        <b>Rs2599</b>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sl sl5">
+                                <div class="imgbox">
+                                    <img src="https://images.unsplash.com/photo-1576420469891-b303889e81bf?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGRpZ2l0YWwlMjB3YXRjaHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60" alt="">
+                                    <div class="cart"><i class="fas fa-shopping-bag"></i>&nbsp; Add To Cart</div>
+                                    <div class="like"><i class="fas fa-heart"></i></div>
+                                    <div class="copy"><i class="fas fa-share-alt"></i></div>
+                                    <div class="view"><i class="far fa-eye"></i></div>
+                                </div>
+                                <div class="desc">
+                                    <div class="starbox">
+                                        <div class="star1"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star2"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star3"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star4"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star5"><i class="fas fa-star"></i></div>
+                                    </div>
+                                    <div class="name">Orologio Digitale</div>
+                                    <div class="price">
+                                        <del>Rs5050</del>
+                                        <b>Rs2272</b>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sl sl6">
+                                <div class="imgbox">
+                                    <img src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjR8fGRpZ2l0YWwlMjB3YXRjaHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60" alt="">
+                                    <div class="cart"><i class="fas fa-shopping-bag"></i>&nbsp; Add To Cart</div>
+                                    <div class="like"><i class="fas fa-heart"></i></div>
+                                    <div class="copy"><i class="fas fa-share-alt"></i></div>
+                                    <div class="view"><i class="far fa-eye"></i></div>
+                                </div>
+                                <div class="desc">
+                                    <div class="starbox">
+                                        <div class="star1"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star2"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star3"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star4"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star5"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                    </div>
+                                    <div class="name">Digitalni Sat</div>
+                                    <div class="price">
+                                        <del>Rs12999</del>
+                                        <b>Rs4999</b>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="in sright" ><i id="rightbtn3" class="fas fa-chevron-right" onclick="nxt(1)"></i></div>
+                    </div>
+                </div>
+                <div class="morebox">
+                    <h6>More</h6>
+                    <i class="fas fa-sort-down"></i>
+                </div>
+            </div>
+            <div class="catbox c4">
+                <div class="head">
+                    <h3>New Arrivals</h3>
+                    <div class="line"></div>
+                </div>
+                <div class="watchslider">
+                    <div class="slide">
+                        <div class="in sleft"><i id="leftbtn4" class="fas fa-chevron-left" onclick="nxt(-1)"></i></div>
+                        <div class="content" id="content4">
+                            <div class="sl sl1">
+                                <div class="imgbox">
+                                    <img src="https://images.unsplash.com/photo-1606391376558-31313ada3aa3?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHdhdGNoJTIwcm9sZXh8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60" alt="">
+                                    <div class="cart"><i class="fas fa-shopping-bag"></i>&nbsp; Add To Cart</div>
+                                    <div class="like"><i class="fas fa-heart"></i></div>
+                                    <div class="copy"><i class="fas fa-share-alt"></i></div>
+                                    <div class="view"><i class="far fa-eye"></i></div>
+                                </div>
+                                <div class="desc">
+                                    <div class="starbox">
+                                        <div class="star1"><i class="fas fa-star"></i></div>
+                                        <div class="star2"><i class="fas fa-star"></i></div>
+                                        <div class="star3"><i class="fas fa-star"></i></div>
+                                        <div class="star4"><i class="fas fa-star"></i></div>
+                                        <div class="star5"><i class="fas fa-star"></i></div>
+                                    </div>
+                                    <div class="name">Le Montre</div>
+                                    <div class="price">
+                                        <del>Rs10900</del>
+                                        <b>Rs6540</b>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sl sl2">
+                                <div class="imgbox">
+                                    <img src="https://images.unsplash.com/photo-1602268393731-a53d49550900?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjR8fHdhdGNoJTIwbHV4dXJ5fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60" alt="">
+                                    <div class="cart"><i class="fas fa-shopping-bag"></i>&nbsp; Add To Cart</div>
+                                    <div class="like"><i class="fas fa-heart"></i></div>
+                                    <div class="copy"><i class="fas fa-share-alt"></i></div>
+                                    <div class="view"><i class="far fa-eye"></i></div>
+                                </div>
+                                <div class="desc">
+                                    <div class="starbox">
+                                        <div class="star1"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star2"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star3"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star4"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star5"><i class="fas fa-star"></i></div>
+                                    </div>
+                                    <div class="name">Vaata</div>
+                                    <div class="price">
+                                        <del>Rs13495</del>
+                                        <b>Rs7422</b>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sl sl3">
+                                <div class="imgbox">
+                                    <img src="https://images.unsplash.com/photo-1580117728803-4e9a65253f92?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjF8fHdhdGNoJTIwbHV4dXJ5fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60" alt="">
+                                    <div class="cart"><i class="fas fa-shopping-bag"></i>&nbsp; Add To Cart</div>
+                                    <div class="like"><i class="fas fa-heart"></i></div>
+                                    <div class="copy"><i class="fas fa-share-alt"></i></div>
+                                    <div class="view"><i class="far fa-eye"></i></div>
+                                </div>
+                                <div class="desc">
+                                    <div class="starbox">
+                                        <div class="star1"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star2"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star3"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star4"><i class="fas fa-star"></i></div>
+                                        <div class="star5"><i class="fas fa-star"></i></div>
+                                    </div>
+                                    <div class="name">Mirar</div>
+                                    <div class="price">
+                                        <del>Rs19995</del>
+                                        <b>Rs10997</b>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sl sl4">
+                                <div class="imgbox">
+                                    <img src="https://images.unsplash.com/photo-1548171916-c0dea7f94ca6?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzR8fHdhdGNoJTIwbHV4dXJ5fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60" alt="">
+                                    <div class="cart"><i class="fas fa-shopping-bag"></i>&nbsp; Add To Cart</div>
+                                    <div class="like"><i class="fas fa-heart"></i></div>
+                                    <div class="copy"><i class="fas fa-share-alt"></i></div>
+                                    <div class="view"><i class="far fa-eye"></i></div>
+                                </div>
+                                <div class="desc">
+                                    <div class="starbox">
+                                        <div class="star1"><i class="fas fa-star"></i></div>
+                                        <div class="star2"><i class="fas fa-star"></i></div>
+                                        <div class="star3"><i class="fas fa-star"></i></div>
+                                        <div class="star4"><i class="fas fa-star"></i></div>
+                                        <div class="star5"><i class="fas fa-star"></i></div>
+                                    </div>
+                                    <div class="name">Orologio</div>
+                                    <div class="price">
+                                        <del>Rs22995</del>
+                                        <b>Rs15750</b>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sl sl5">
+                                <div class="imgbox">
+                                    <img src="https://images.unsplash.com/photo-1618215650454-d03cac422c8f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nzl8fHdhdGNoJTIwbHV4dXJ5fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60" alt="">
+                                    <div class="cart"><i class="fas fa-shopping-bag"></i>&nbsp; Add To Cart</div>
+                                    <div class="like"><i class="fas fa-heart"></i></div>
+                                    <div class="copy"><i class="fas fa-share-alt"></i></div>
+                                    <div class="view"><i class="far fa-eye"></i></div>
+                                </div>
+                                <div class="desc">
+                                    <div class="starbox">
+                                        <div class="star1"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star2"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star3"><i class="fas fa-star"></i></div>
+                                        <div class="star4"><i class="fas fa-star"></i></div>
+                                        <div class="star5"><i class="fas fa-star"></i></div>
+                                    </div>
+                                    <div class="name">Ikusi</div>
+                                    <div class="price">
+                                        <del>Rs5940</del>
+                                        <b>Rs4790</b>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sl sl6">
+                                <div class="imgbox">
+                                    <img src="https://images.unsplash.com/photo-1599423256402-939fc3e8112d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OTR8fHdhdGNoJTIwbHV4dXJ5fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60" alt="">
+                                    <div class="cart"><i class="fas fa-shopping-bag"></i>&nbsp; Add To Cart</div>
+                                    <div class="like"><i class="fas fa-heart"></i></div>
+                                    <div class="copy"><i class="fas fa-share-alt"></i></div>
+                                    <div class="view"><i class="far fa-eye"></i></div>
+                                </div>
+                                <div class="desc">
+                                    <div class="starbox">
+                                        <div class="star1"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star2"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star3"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star4"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star5"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                    </div>
+                                    <div class="name">Kyk</div>
+                                    <div class="price">
+                                        <del>Rs6758</del>
+                                        <b>Rs2587</b>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="in sright" ><i id="rightbtn4" class="fas fa-chevron-right" onclick="nxt(1)"></i></div>
+                    </div>
+                </div>
+                <div class="morebox">
+                    <h6>More</h6>
+                    <i class="fas fa-sort-down"></i>
+                </div>
+            </div>
+            <div class="catbox c5">
+                <div class="head">
+                    <h3>Rare Timepiece</h3>
+                    <div class="line"></div>
+                </div>
+                <div class="watchslider">
+                    <div class="slide">
+                        <div class="in sleft"><i id="leftbtn5" class="fas fa-chevron-left" onclick="nxt(-1)"></i></div>
+                        <div class="content" id="content5">
+                            <div class="sl sl1">
+                                <div class="imgbox">
+                                    <img src="https://www.thetrendspotter.net/wp-content/uploads/2017/02/Breguet-Marie-Antoinette-Grande-Complication-Pocket-Watch.jpg" alt="">
+                                    <div class="cart"><i class="fas fa-shopping-bag"></i>&nbsp; Add To Cart</div>
+                                    <div class="like"><i class="fas fa-heart"></i></div>
+                                    <div class="copy"><i class="fas fa-share-alt"></i></div>
+                                    <div class="view"><i class="far fa-eye"></i></div>
+                                </div>
+                                <div class="desc">
+                                    <div class="starbox">
+                                        <div class="star1"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star2"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star3"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star4"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star5"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                    </div>
+                                    <div class="name">Montre Rare</div>
+                                    <div class="price">
+                                        <b>$30 Million</b>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sl sl2">
+                                <div class="imgbox">
+                                    <img src="https://www.thetrendspotter.net/wp-content/uploads/2017/02/Jacob-Co.-Billionaire-Watch.jpg" alt="">
+                                    <div class="cart"><i class="fas fa-shopping-bag"></i>&nbsp; Add To Cart</div>
+                                    <div class="like"><i class="fas fa-heart"></i></div>
+                                    <div class="copy"><i class="fas fa-share-alt"></i></div>
+                                    <div class="view"><i class="far fa-eye"></i></div>
+                                </div>
+                                <div class="desc">
+                                    <div class="starbox">
+                                        <div class="star1"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star2"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star3"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star4"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star5"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                    </div>
+                                    <div class="name">Orologio Raro</div>
+                                    <div class="price">
+                                        <b>$18 Million</b>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sl sl3">
+                                <div class="imgbox">
+                                    <img src="https://www.thetrendspotter.net/wp-content/uploads/2017/02/Louis-Moinet-Meteoris.jpg" alt="">
+                                    <div class="cart"><i class="fas fa-shopping-bag"></i>&nbsp; Add To Cart</div>
+                                    <div class="like"><i class="fas fa-heart"></i></div>
+                                    <div class="copy"><i class="fas fa-share-alt"></i></div>
+                                    <div class="view"><i class="far fa-eye"></i></div>
+                                </div>
+                                <div class="desc">
+                                    <div class="starbox">
+                                        <div class="star1"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star2"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star3"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star4"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star5"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                    </div>
+                                    <div class="name">Reloj Raro</div>
+                                    <div class="price">
+                                        <b>$4.6 Million</b>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sl sl4">
+                                <div class="imgbox">
+                                    <img src="https://www.thetrendspotter.net/wp-content/uploads/2017/02/Vacheron-Constantin-Tour-de-IIle.jpg" alt="">
+                                    <div class="cart"><i class="fas fa-shopping-bag"></i>&nbsp; Add To Cart</div>
+                                    <div class="like"><i class="fas fa-heart"></i></div>
+                                    <div class="copy"><i class="fas fa-share-alt"></i></div>
+                                    <div class="view"><i class="far fa-eye"></i></div>
+                                </div>
+                                <div class="desc">
+                                    <div class="starbox">
+                                        <div class="star1"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star2"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star3"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star4"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star5"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                    </div>
+                                    <div class="name">Skaars Kyk</div>
+                                    <div class="price">
+                                        <b>$1.5 Million</b>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sl sl5">
+                                <div class="imgbox">
+                                    <img src="https://www.thetrendspotter.net/wp-content/uploads/2017/02/Hublot-Big-Bang.jpg" alt="">
+                                    <div class="cart"><i class="fas fa-shopping-bag"></i>&nbsp; Add To Cart</div>
+                                    <div class="like"><i class="fas fa-heart"></i></div>
+                                    <div class="copy"><i class="fas fa-share-alt"></i></div>
+                                    <div class="view"><i class="far fa-eye"></i></div>
+                                </div>
+                                <div class="desc">
+                                    <div class="starbox">
+                                        <div class="star1"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star2"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star3"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star4"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star5"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                    </div>
+                                    <div class="name">Erloju Arraroa</div>
+                                    <div class="price">
+                                        <b>$5 Million</b>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sl sl6">
+                                <div class="imgbox">
+                                    <img src="https://www.thetrendspotter.net/wp-content/uploads/2017/02/Patek-Philippe-Ref.-1518-in-Stainless-Steel.jpg" alt="">
+                                    <div class="cart"><i class="fas fa-shopping-bag"></i>Add To Cart</div>
+                                    <div class="like"><i class="fas fa-heart"></i></div>
+                                    <div class="copy"><i class="fas fa-share-alt"></i></div>
+                                    <div class="view"><i class="far fa-eye"></i></div>
+                                </div>
+                                <div class="desc">
+                                    <div class="starbox">
+                                        <div class="star1"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star2"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star3"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star4"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                        <div class="star5"><i class="fas fa-star" style="color:#fc9105"></i></div>
+                                    </div>
+                                    <div class="name">Zeldzaam Horloge</div>
+                                    <div class="price">
+                                        <b>$11 Million</b>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="in sright" ><i id="rightbtn5" class="fas fa-chevron-right" onclick="nxt(1)"></i></div>
+                    </div>
+                </div>
+                <div class="morebox">
+                    <h6>More</h6>
+                    <i class="fas fa-sort-down"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+ <section class="sec faq" id="fam">
+        <div class="back">
+            <div class="text">
+                <h1>F.A.Q</h1>
+                <p>Answered By Maggi</p>
+            </div>
+        </div>
+        <div class="faqbox">
+            <div class="subbox sub1">
+                <div class="quesbox qb1">
+                    <div class="quesubbox">
+                        <div class="que">
+                            <p>
+                                Do you offer free shipping?
+                            </p>
+                            <i class="fas fa-sort-down" id="dwn1"></i>
+                        </div>
+                        <div class="ans" id="a1">
+                            <p>
+                                Yes WE DO! Maggi Creation offers free international shipping on orders above Rs 10000 and free shipping on Maggi Land Orders above Rs70 :) We have been shipping worldwide since 2004 and we ship internationally DAILY! Shipping cost in otherwise cases would be quoted.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="quesbox ql qb2">
+                    <div class="quesubbox">
+                        <div class="que">
+                            <p>
+                                Are the waches you sell 100% authentic?
+                            </p>
+                            <i class="fas fa-sort-down" id="dwn2"></i>
+                        </div>
+                        <div class="ans" id="a2">
+                            <p>
+                                Yes CLOCKSY is an Autorized Dealer of All the brands and watches we carry and they all come with full manufacturer WARRANTIES that are honored internationally. All of our watches sold are AUTHENTIC GUARANTEED, brand new, unworn and come in original manufacturer packaging. 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="subbox sub2">
+                <div class="quesbox qb3">
+                    <div class="quesubbox">
+                        <div class="que">
+                            <p>
+                                How do I know if the watch is battery operated or mechanical? 
+                            </p>
+                            <i class="fas fa-sort-down" id="dwn3"></i>
+                        </div>
+                        <div class="ans" id="a3">
+                            <p>
+                                The movement type used in the watch is listed in the "DETAIlS" section of every product page. All quartz watches require a battery, automatic watches are powered through hand winding or wrist movement. That's what my GOOGLE uncle told me ;) If you still have doubt regarding movement of your selected watch use faq secion at that page.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="quesbox ql qb4">
+                    <div class="quesubbox">
+                        <div class="que">
+                            <p>
+                               I recieved a watch as a gift and its not to my liking. Can I exchange it? 
+                            </p>
+                            <i class="fas fa-sort-down" id="dwn4"></i>
+                        </div>
+                        <div class="ans" id="a4">
+                            <p>
+                                YES! You can exchange a brand new, unworn watches purchased from CLOCKSY within the 10 day return period. Unfortunately we don't provide refunds on gifts :/ To begin return process mail us and we will reply you with the instructions of steps. Don't worry we will keep your secret from your friend of you exchanging his/her gift watch :)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="subbox sub3">
+                <div class="quesbox qb5">
+                    <div class="quesubbox">
+                        <div class="que">
+                            <p>
+                                I am confused regarding my watch functionality. How does it work?
+                            </p>
+                            <i class="fas fa-sort-down" id="dwn5"></i>
+                        </div>
+                        <div class="ans" id="a5">
+                            <p>
+                                Your watch would have an instruction booklet for specific functionality. Some eco friendly brand might not provide printed instruction manual, but make-manual available on their websites for free Do check that out. If you need additional help we are more than happy to assist you at a cost of 10 plates of maggi, 50 choocolates and 25 ice-creams :D 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="quesbox ql qb6">
+                    <div class="quesubbox">
+                        <div class="que">
+                            <p>
+                                What to do if my battery died within 30 days of receiving?                                
+                            </p>
+                            <i class="fas fa-sort-down" id="dwn6"></i>
+                        </div>
+                        <div class="ans" id="a6">
+                            <p>
+                                Most watch batteries can last over 2 years from when they are first put into use. If the watch stops fuctioning, this is most likely due to a prematurely dead battery cell which just needs to be replaced. Any qualified local watch store can replace your battery. Visit Contact Us page or mail us, if your battery died before first 30 days of delivery 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="subbox sub4">
+                <div class="quesbox qb7">
+                    <div class="quesubbox">
+                        <div class="que">
+                            <p>
+                                Can I place a special order for a brand you don’t have on your website?
+                            </p>
+                            <i class="fas fa-sort-down" id="dwn7"></i>
+                        </div>
+                        <div class="ans" id="a7">
+                            <p>
+                                We have a carefully curated collection of the brands we carry on our site; unfortunately if you don’t see it on our site, we don’t carry it. We are open to considering new & interesting brands. Please submit new brands/collections via our Contact Us page
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="quesbox ql qb8">
+                    <div class="quesubbox">
+                        <div class="que">
+                            <p>
+                                My watch strap got damaged. Do you sell replacement watch straps?
+                            </p>
+                            <i class="fas fa-sort-down" id="dwn8"></i>
+                        </div>
+                        <div class="ans" id="a8">
+                            <p>
+                                We carry spare straps for a limited amount of brands. All other straps can be acquired directly by contacting the brand/manufacturer. Please visit manufaturer contact us section and ask them for their strap collections of that particular brand.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="subbox sub5">
+                <div class="quesbox qb9">
+                    <div class="quesubbox">
+                        <div class="que">
+                            <p>
+                                I am very eager for my order, how long will it take?
+                            </p>
+                            <i class="fas fa-sort-down" id="dwn9"></i>
+                        </div>
+                        <div class="ans" id="a9">
+                            <p>
+                                Estimated shipping dates are listed on the preorder product page. We will ship as soon as the item(s) become available and you'll receive a tracking number via email. Ship dates are estimates and subject to change with notice.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="quesbox ql qb10">
+                    <div class="quesubbox">
+                        <div class="que">
+                            <p>
+                                How long will it take for my exchange/return to be processed?
+                            </p>
+                            <i class="fas fa-sort-down" id="dwn10"></i>
+                        </div>
+                        <div class="ans" id="a10">
+                            <p>
+                                Returns once received take up to 5 business days to be processed. During the busy holiday season, returns can take up to 10 business days to be processed after receipt. Once your return has been processed you will be notified by email.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="sec feedback" id="fdm">
+        <div class="txtbox">
+            <p>What <b>Our Customers</b> Say About Us</p>
+        </div>
+        <div class="feed">
+            <div class="slide">
+                <div class="in sleft"><i class="fas fa-chevron-left" onclick="nxt(-1)"> </i></div>
+                <div class="csl sl1">
+                    
+                    <div class="profilebox">                        
+                        <div class="reviewcircle">
+                            <div class="txt">
+                                <div class="quote"><i class="fas fa-quote-left"> </i></div>
+                                <div class="text">Was very delighted by the product recieved. Your services are prompt and amazing staff.</div>
+                                <div class="name">Mr. Elf</div>
+                            </div>
+                        </div>
+                        <div class="profile">
+                            <img src="https://images.unsplash.com/photo-1604868379657-dd7c35f6c4cf?ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8ZWxmfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60" alt="">
+                        </div>
+                    </div>
+                    <div class="background">
+                        <img src="https://images.unsplash.com/photo-1613710774862-d813121e6d44?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8d3Jpc3QlMjB3YXRjaHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60" alt="">
+                    </div>
+                </div>
+                <div class="csl sl2">
+                    <div class="profilebox">                        
+                        <div class="reviewcircle">
+                            <div class="txt">
+                                <div class="quote"><i class="fas fa-quote-left"> </i></div>
+                                <div class="text">I am impressed by the quality service the seller extends to meet his customer's requests. Highly Recommended!!</div>
+                                <div class="name">Ms Fairy</div>
+                            </div>
+                        </div>
+                        <div class="profile">
+                            <img src="https://images.unsplash.com/photo-1606917436202-97a75b97d71d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGVsZnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60" alt="">
+                        </div>
+                    </div>
+                    <div class="background">
+                        <img src="https://images.unsplash.com/photo-1609587312208-cea54be969e7?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHdyaXN0JTIwd2F0Y2h8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60" alt="">
+                    </div>
+                </div>
+                <div class="csl sl3">
+                    <div class="profilebox">                        
+                        <div class="reviewcircle">
+                            <div class="txt">
+                                <div class="quote"><i class="fas fa-quote-left"> </i></div>
+                                <div class="text">Loved this product! Arrived 2 days earlier than expected and awesome quality. One of my favorite buys of the season.</div>
+                                <div class="name">Mr. Santa</div>
+                            </div>
+                        </div>
+                        <div class="profile">
+                            <img src="https://images.unsplash.com/photo-1609706845214-86c2f78376ed?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzB8fGVsZnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60" alt="">
+                        </div>
+                    </div>
+                    <div class="background">
+                        <img src="https://images.unsplash.com/photo-1612177343582-665b93b34403?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fHdyaXN0JTIwd2F0Y2h8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60" alt="">
+                    </div>
+                </div>
+                <div class="csl sl4">
+                    <div class="profilebox">                        
+                        <div class="reviewcircle">
+                            <div class="txt">
+                                <div class="quote"><i class="fas fa-quote-left"> </i></div>
+                                <div class="text">I am really impressed by the watch. I bought it for my friend on her birthday and she was extremely happy ;)</div>
+                                <div class="name">Minion</div>
+                            </div>
+                        </div>
+                        <div class="profile">
+                            <img src="https://images.unsplash.com/photo-1593085512500-5d55148d6f0d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FydG9vbnN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60" alt="">
+                        </div>
+                    </div>
+                    <div class="background">
+                        <img src="https://images.unsplash.com/photo-1434056886845-dac89ffe9b56?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjR8fHdyaXN0JTIwd2F0Y2h8ZW58MHx8MHx8&auto=format&fit=crop&w=1100&q=60" alt="">
+                    </div>
+                </div>
+                <div class="csl sl5">
+                    <div class="profilebox">                        
+                        <div class="reviewcircle">
+                            <div class="txt">
+                                <div class="quote"><i class="fas fa-quote-left"> </i></div>
+                                <div class="text">Clocksy is competitively priced & website is easy to use, quickly found the part I needed. Will definitely revisit.</div>
+                                <div class="name">Spiderman</div>
+                            </div>
+                        </div>
+                        <div class="profile">
+                            <img src="https://images.unsplash.com/photo-1584994696678-3d739b5ac1bf?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c3BpZGVybWFufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60" alt="">
+                        </div>
+                    </div>
+                    <div class="background">
+                        <img src="https://images.unsplash.com/photo-1604862245158-1ade60a7357a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzF8fHdyaXN0JTIwd2F0Y2h8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60" alt="">
+                    </div>
+                </div>
+                <div class="csl sl6">
+                    <div class="profilebox">                        
+                        <div class="reviewcircle">
+                            <div class="txt">
+                                <div class="quote"><i class="fas fa-quote-left"> </i></div>
+                                <div class="text">Wanted to buy a watch, searchd all day, too expensive compared to it's proposed usage. Found it here quick, easy, painless.</div>
+                                <div class="name">Dora</div>
+                            </div>
+                        </div>
+                        <div class="profile">
+                            <img src="https://images.unsplash.com/photo-1614583225683-69db8b9965e4?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YW5pbWUlMjBnaXJsfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60" alt="">
+                        </div>
+                    </div>
+                    <div class="background">
+                        <img src="https://images.unsplash.com/photo-1503328427499-d92d1ac3d174?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTAzfHx3cmlzdCUyMHdhdGNofGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60" alt="">
+                    </div>
+                </div>
+                <div class="in sright"><i class="fas fa-chevron-right" onclick="nxt(1)"> </i></div>
+            </div>
+        </div>
+        <div class="newsletter">
+            <div class="head">
+                <p>Our Newsletter</p>
+            </div>
+            <div class="txt">
+                <p>Life is too short for boring emails. Sign up to get best deals, our latest products and lots more! Get weekly updates on the newest and trendiest designs. case studies and tips right in your mailbox. Your email is safe with us, we don't spam :) </p>
+            </div>
+            <div class="input">
+                <input type="email" placeholder="Enter your email id">
+                <button>Subscribe</button>
+            </div>
+        </div>
+    </section>
+    <section class="sec contact" id="cm">
+        <div class="box b1">
+            <div class="subbox">
+                <div class="sb sb1">
+                    <i class="fas fa-truck" id="dwn1"></i>
+                    <p>Free Delivery</p>
+                    <h6>Free Shipping On All Orders</h6>
+                </div>
+                <div class="sb sb2">
+                    <i class="fas fa-hand-holding-usd" id="dwn1"></i>
+                    <p>Money Return</p>
+                    <h6>Back Guarantee in 70 years ;) </h6>
+                </div>
+            </div>
+            <div class="subbox">
+                <div class="sb sb1">
+                    <i class="fas fa-percent" id="dwn1"></i>
+                    <p>Member Discount</p>
+                    <h6>On every order over 1 Million</h6>
+                </div>
+                <div class="sb sb2">
+                    <i class="fas fa-headset" id="dwn1"></i>
+                    <p>Our Support</p>
+                    <h6>Always 24 x 7 support available</h6>
+                </div>
+            </div>
+        </div>
+        <div class="box b2">
+            <div class="head">
+                <h5>Contact Us</h5>
+            </div>
+            <div class="bbox">
+                <div>
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>
+                        H.No. -75 Atrangi Niwas, Maggi Land, 
+                        At Ice Cream Mountain,
+                        Near Chocolaty River 
+                    </p>
+                </div>
+                <div>
+                    <i class="far fa-envelope"></i>
+                    <p>
+                        chocolate@icecream.com
+                    </p>
+                </div>
+                <div>
+                    <i class="fas fa-phone-alt"></i>
+                    <p>
+                        (-75) 222 7777
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="box b3">
+            <div class="i i1"><i class="fab fa-facebook-f"></i></div>
+            <div class="i i2"><i class="fab fa-twitter"></i></div>
+            <div class="i i3"><i class="fab fa-linkedin-in"></i></div>
+            <div class="i i4"><i class="fab fa-instagram"></i></div>
+            <div class="i i5"><i class="fab fa-google-plus-g"></i></div>
+        </div>
+        <div class="footer">&copy; Anshika&#9836;, 2021</div>
+    </section>
+    <div class="main" id="loader">
+        <div class="lbox">
+            <div class="box">
+                <div class="b b1 b11"></div>
+            </div>
+            <div class="box box2">
+                <div class="b b1 b12"></div>
+            </div>
+            <div class="box box3">
+                <div class="b b1 b13"></div>
+            </div>
+            <div class="box box4">
+                <div class="b b1 b14"></div>
+            </div>
+            <div class="box box5">
+                <div class="b b1 b15"></div>
+            </div>
+            <div class="box box6">
+                <div class="b b1 b16"></div>
+            </div>
+            <div class="box box7">
+                <div class="b b1 b17"></div>
+            </div>
+            <div class="box box8">
+                <div class="b b1 b18"></div>
+            </div>
+            <div class="box box9">
+                <div class="b b1 b19"></div>
+            </div>
+            <div class="box box10">
+                <div class="b b1 b120"></div>
+            </div>
+        </div>
+        <button class="skip" onclick="sk()">SKIP</button>
+    </div>
+ <script>
+        const nb = document.getElementById("nb");
+        const sidenv = document.getElementById("sidenv");
+        const rightbtn = document.getElementById("rightbtn");
+        const leftbtn = document.getElementById("leftbtn");
+        const content = document.getElementById("content");
+        const rightbtn2 = document.getElementById("rightbtn2");
+        const leftbtn2 = document.getElementById("leftbtn2");
+        const content2 = document.getElementById("content2");
+        const rightbtn3 = document.getElementById("rightbtn3");
+        const leftbtn3 = document.getElementById("leftbtn3");
+        const content3 = document.getElementById("content3");
+        const rightbtn4 = document.getElementById("rightbtn4");
+        const leftbtn4 = document.getElementById("leftbtn4");
+        const content4 = document.getElementById("content4");
+        const rightbtn5 = document.getElementById("rightbtn5");
+        const leftbtn5 = document.getElementById("leftbtn5");
+        const content5 = document.getElementById("content5");
+        const dwn1 = document.getElementById("dwn1");
+        const a1 = document.getElementById("a1");
+        const dwn2 = document.getElementById("dwn2");
+        const a2 = document.getElementById("a2");
+        const dwn3 = document.getElementById("dwn3");
+        const a3 = document.getElementById("a3");
+        const dwn4 = document.getElementById("dwn4");
+        const a4 = document.getElementById("a4");
+        const dwn5 = document.getElementById("dwn5");
+        const a5 = document.getElementById("a5");
+        const dwn6 = document.getElementById("dwn6");
+        const a6 = document.getElementById("a6");
+        const dwn7 = document.getElementById("dwn7");
+        const a7 = document.getElementById("a7");
+        const dwn8 = document.getElementById("dwn8");
+        const a8 = document.getElementById("a8");
+        const dwn9 = document.getElementById("dwn9");
+        const a9 = document.getElementById("a9");
+        const dwn10 = document.getElementById("dwn10");
+        const a10 = document.getElementById("a10");
+        const hm = document.getElementById("hm");
+        const fm = document.getElementById("fm");
+        const sm = document.getElementById("sm");
+        const fam = document.getElementById("fam");
+        const fdm = document.getElementById("fdm");
+        const cm = document.getElementById("cm");
+        const loader = document.getElementById("loader");
+        window.onload = function(){
+            setTimeout(() => {
+                hm.classList.remove("sec");
+                fm.classList.remove("sec");
+                sm.classList.remove("sec");
+                fam.classList.remove("sec");
+                fdm.classList.remove("sec");
+                cm.classList.remove("sec");
+                loader.classList.add("sec");
+            }, 2000);
+        }
+        function sk(){
+            setTimeout(() => {
+                hm.classList.remove("sec");
+                fm.classList.remove("sec");
+                sm.classList.remove("sec");
+                fam.classList.remove("sec");
+                fdm.classList.remove("sec");
+                cm.classList.remove("sec");
+                loader.classList.add("sec");
+            }, 300);
+        }
+        dwn1.addEventListener("click", function(){
+            if(dwn1.classList.contains ('rotate')){
+                a1.style.display="none";
+                dwn1.classList.remove("rotate");                
+            }else{
+                a1.style.display="block";
+                dwn1.classList.add("rotate");
+            }
+        });
+        dwn2.addEventListener("click", function(){
+            if(dwn2.classList.contains ('rotate')){
+                a2.style.display="none";
+                dwn2.classList.remove("rotate");                
+            }else{
+                a2.style.display="block";
+                dwn2.classList.add("rotate");
+            }
+        });
+        dwn3.addEventListener("click", function(){
+            if(dwn3.classList.contains ('rotate')){
+                a3.style.display="none";
+                dwn3.classList.remove("rotate");                
+            }else{
+                a3.style.display="block";
+                dwn3.classList.add("rotate");
+            }
+        });
+        dwn4.addEventListener("click", function(){
+            if(dwn4.classList.contains ('rotate')){
+                a4.style.display="none";
+                dwn4.classList.remove("rotate");                
+            }else{
+                a4.style.display="block";
+                dwn4.classList.add("rotate");
+            }
+        });
+        dwn5.addEventListener("click", function(){
+            if(dwn5.classList.contains ('rotate')){
+                a5.style.display="none";
+                dwn5.classList.remove("rotate");                
+            }else{
+                a5.style.display="block";
+                dwn5.classList.add("rotate");
+            }
+        });
+        dwn6.addEventListener("click", function(){
+            if(dwn6.classList.contains ('rotate')){
+                a6.style.display="none";
+                dwn6.classList.remove("rotate");                
+            }else{
+                a6.style.display="block";
+                dwn6.classList.add("rotate");
+            }
+        });
+        dwn7.addEventListener("click", function(){
+            if(dwn7.classList.contains ('rotate')){
+                a7.style.display="none";
+                dwn7.classList.remove("rotate");                
+            }else{
+                a7.style.display="block";
+                dwn7.classList.add("rotate");
+            }
+        });
+        dwn8.addEventListener("click", function(){
+            if(dwn8.classList.contains ('rotate')){
+                a8.style.display="none";
+                dwn8.classList.remove("rotate");                
+            }else{
+                a8.style.display="block";
+                dwn8.classList.add("rotate");
+            }
+        });
+        dwn9.addEventListener("click", function(){
+            if(dwn9.classList.contains ('rotate')){
+                a9.style.display="none";
+                dwn9.classList.remove("rotate");                
+            }else{
+                a9.style.display="block";
+                dwn9.classList.add("rotate");
+            }
+        });
+        dwn10.addEventListener("click", function(){
+            if(dwn10.classList.contains ('rotate')){
+                a10.style.display="none";
+                dwn10.classList.remove("rotate");                
+            }else{
+                a10.style.display="block";
+                dwn10.classList.add("rotate");
+            }
+        });
+        var si = 1;
+        function slid(n){
+            var i;
+            var s = document.getElementsByClassName("csl");
+            if (n > s.length){
+                si = 1;
+            }
+            if(n < 1){
+                si = s.length;
+            }
+            for(i = 0; i < s.length; i++){
+                s[i].style.display = "none";
+            }
+            s[si-1].style.display ="block";
+        }
+        slid(si);
+        function nxt(n){
+            slid(si += n);
+        }    
+        function current(n){
+            slid(si = n);
+        }
+        
+        rightbtn.addEventListener("click", function(event){
+            content.scrollLeft += 255;
+            event.preventDefault();
+        });
+        leftbtn.addEventListener("click", function(event){
+            content.scrollLeft -= 255;
+            event.preventDefault();
+        });
+        rightbtn2.addEventListener("click", function(event){
+            content2.scrollLeft += 255;
+            event.preventDefault();
+        });
+        leftbtn2.addEventListener("click", function(event){
+            content2.scrollLeft -= 255;
+            event.preventDefault();
+        });
+        rightbtn3.addEventListener("click", function(event){
+            content3.scrollLeft += 255;
+            event.preventDefault();
+        });
+        leftbtn3.addEventListener("click", function(event){
+            content3.scrollLeft -= 255;
+            event.preventDefault();
+        });
+        rightbtn4.addEventListener("click", function(event){
+            content4.scrollLeft += 255;
+            event.preventDefault();
+        });
+        leftbtn4.addEventListener("click", function(event){
+            content4.scrollLeft -= 255;
+            event.preventDefault();
+        });
+        rightbtn5.addEventListener("click", function(event){
+            content5.scrollLeft += 255;
+            event.preventDefault();
+        });
+        leftbtn5.addEventListener("click", function(event){
+            content5.scrollLeft -= 255;
+            event.preventDefault();
+        });
+        function op(){
+            sidenv.style.transform="rotate(0deg) translateX(0%)";
+            setTimeout(() =>{
+                nb.style.transform="translateX(0%)";
+            }, 700)
+        }
+        function cl(){
+            sidenv.style.transform="rotate(-60deg) translateX(150%)";
+            nb.style.transform="translateX(150%)";
+        }
+    </script>
+</body>
+    
+</html>
